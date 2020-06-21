@@ -1,0 +1,19 @@
+FROM python:rc-alpine
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN apk update\
+    && apk add --no-cache \
+    gcc \
+    g++ \
+    make \
+    autoconf \
+    automake \
+    libtool \
+    gsoap \
+    libxml2-dev \
+    libxslt-dev \
+    fakeroot
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple opcua
+VOLUME AML
+COPY . /Parser
+WORKDIR /Parser
+CMD ["python", "main.py"]

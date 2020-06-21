@@ -1,0 +1,5 @@
+FROM minio/mc
+VOLUME AML
+COPY main.sh /
+ENTRYPOINT ["sh"]
+CMD ["/main.sh"]

@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+    consul:
+        build: ./Consul/
+        volumes:
+            - ./AML:/AML
+    parser:
+        build: ./Parser/
+        volumes:
+            - ./AML:/AML
+    minio:
+        build: ./Minio/
+        volumes:
+            - ./AML:/AML
+
+    
