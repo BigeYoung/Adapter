@@ -1,17 +1,17 @@
 version: '3.3'
 
 services:
-    consul:
-        build: ./Consul/
+    myconsul:
+        build: Consul
         volumes:
-            - ./AML:/AML
-    parser:
-        build: ./Parser/
+            - /root/Aml2UaParser/AML:/AML
+     myparser:
+         build: Parser
+         volumes:
+             - /root/Aml2UaParser/AML:/AML
+    myminio:
+        build: Minio
         volumes:
-            - ./AML:/AML
-    minio:
-        build: ./Minio/
-        volumes:
-            - ./AML:/AML
+            - /root/Aml2UaParser/AML:/AML
 
     

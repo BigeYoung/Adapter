@@ -3,6 +3,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 RUN apk update\
     && apk add --no-cache python3-dev
 VOLUME AML
+RUN mkdir /consul.d
 COPY . /Consul
 WORKDIR /Consul
 CMD ["python3", "main.py"]
