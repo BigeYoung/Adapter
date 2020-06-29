@@ -1,5 +1,5 @@
-FROM minio/mc
-VOLUME AML
-COPY main.sh /
-ENTRYPOINT ["sh"]
-CMD ["/main.sh"]
+FROM python:rc-alpine
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple minio
+COPY . /Minio
+WORKDIR /Minio
+CMD ["python3", "main.py"]
