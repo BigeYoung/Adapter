@@ -4,14 +4,14 @@ services:
     consul:
         build: Consul
         volumes:
-            - /home/pi/Aml2UaParser/AML:/AML
+            - /home/pi/Adapter/AML:/AML
     parser:
         build: Parser
         volumes:
-            - /home/pi/Aml2UaParser/AML:/AML
+            - /home/pi/Adapter/AML:/AML
     minio:
         build: Minio
         volumes:
-            - /home/pi/Aml2UaParser/AML:/AML
+            - /home/pi/Adapter/AML:/AML
 
     

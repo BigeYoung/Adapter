@@ -1,11 +1,15 @@
-# AML to OPC UA Server Parser
+# Adapter
+实验室产线的Adapter，默认支持在arm架构上运行。
 
-### Dependencies:  
-[python-opcua](https://github.com/FreeOpcUa/python-opcua)    
-Python 3.7.6: `logging`, `xml.etree.ElementTree`    
-Note: Other Python version might meet requirements, but havn't been tested.  
+## Dependencies:
+需要安装`docker`和`docker-compose`
 
-This module input an AML file and start a OPC UA Server.
+## RUN
+将本文件夹放在`/home/pi/`下，然后
+```bash
+cd /home/pi/Adapter
+docker-compose up #-d 后台运行
+``` 
 
 ### Author:
 [@BigeYoung](https://github.com/BigeYoung) from **South China University of Technology**.
