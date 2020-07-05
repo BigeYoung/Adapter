@@ -3,15 +3,20 @@ version: '3.3'
 services:
     consul:
         build: Consul
+        environment:
+            - 'CONSUL_LOCAL_CONFIG={"leave_on_terminate": true}'
         volumes:
-            - /home/pi/Adapter/AML:/AML
-    parser:
-        build: Parser
-        volumes:
-            - /home/pi/Adapter/AML:/AML
-    minio:
-        build: Minio
-        volumes:
-            - /home/pi/Adapter/AML:/AML
+            - ${HOME}/Adapter/AML:/AML
+            - ${HOME}/.kube:/root/.kube
+            - ${HOME}/.minikube:${HOME}/.minikube
+        network_mode: bridge
+    # parser:
+    #     build: Parser
+    #     volumes:
+    #         - /home/bige/Adapter/AML:/AML
+    # minio:
+    #     build: Minio
+    #     volumes:
+    #         - /home/bige/Adapter/AML:/AML
 
     
