@@ -68,3 +68,11 @@ consul_1  |     2020-07-05T16:04:25.567Z [INFO]  agent: (LAN) joining: lan_addre
 ```
 
 但是仍然会报"No servers available"
+
+另外，当使用`ingress`时出错（之前出的错一直没解决，来回`disable`和`delete`了很多次都不行）
+```sh
+$ minikube addons enable ingress
+🌟  The 'ingress' addon is enabled
+$ kubectl apply -f ingress.yaml
+Error from server (InternalError): error when creating "ingress.yaml": Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io": Post https://ingress-nginx-controller-admission.kube-system.svc:443/extensions/v1beta1/ingresses?timeout=30s: dial tcp 10.110.85.183:443: connect: connection refused
+```
