@@ -1,22 +1,22 @@
-version: '3.3'
+version: "3.3"
 
 services:
-    consul:
-        build: Consul
-        environment:
-            - 'CONSUL_LOCAL_CONFIG={"leave_on_terminate": true}'
-        volumes:
-            - ${HOME}/Adapter/AML:/AML
-            - ${HOME}/.kube:/root/.kube
-            - ${HOME}/.minikube:${HOME}/.minikube
-        network_mode: bridge
-    # parser:
-    #     build: Parser
+    # consul:
+    #     build: Consul
+    #     environment:
+    #         - 'CONSUL_LOCAL_CONFIG={"leave_on_terminate": true}'
     #     volumes:
-    #         - ${HOME}/Adapter/AML:/AML
+    #         - ${HOME}/Adapter/volume:/volume
+    #         - ${HOME}/.kube:/root/.kube
+    #         - ${HOME}/.minikube:${HOME}/.minikube
+    #     network_mode: bridge
+    parser:
+        build: Parser
+        volumes:
+            - ${HOME}/Adapter/volume:/volume
+        ports: 
+            - 4840:4840
     # minio:
     #     build: Minio
     #     volumes:
-    #         - ${HOME}/Adapter/AML:/AML
-
-    
+    #         - ${HOME}/Adapter/volume:/volume

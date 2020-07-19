@@ -16,4 +16,4 @@ RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple opcua
 VOLUME AML
 COPY . /Parser
 WORKDIR /Parser
-CMD ["python", "main.py"]
+CMD ["python", "-u", "main.py"]

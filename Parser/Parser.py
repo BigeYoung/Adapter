@@ -13,6 +13,10 @@ class Parser:
         logging.info("Start.")
         self.nullable = nullable
 
+    def import_xml(self, xml_file):
+        self.server = Server()
+        self.server.import_xml(xml_file)
+
     def parse(self, aml_file, namespace):
         self.server = Server()
         self.server.import_xml("Opc.Ua.AMLBaseTypes.NodeSet2.xml")
