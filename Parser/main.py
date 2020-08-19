@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from Parser import Parser
 
-mypath = "/AML/"
+mypath = "/home/pi/Adapter/AML/"
 from os import listdir
 from os.path import isfile, join
 files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
@@ -11,3 +11,4 @@ aml = mypath + files[0]
 parser = Parser()
 parser.parse(aml, "http://www.itdili.cn/UA/"+aml)
 parser.export("opcua.xml")
+parser.server.start()

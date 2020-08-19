@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+//函数原型
+//SET(string protocol, string config, string value) -> string status;
+//GET(string protocol, string config) -> string value;
+
+service Mapping {
+    rpc SET (Request) returns (Reply) {}
+    rpc GET (Request) returns (Reply) {}
+}
+
+message Request {
+    string protocol = 1;
+    string config = 2;
+    string value = 3;
+}
+
+message Reply {
+    string value = 1;
+}

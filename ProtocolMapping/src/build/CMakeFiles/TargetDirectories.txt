@@ -1,0 +1,3 @@
+/home/pi/ProtocolMapping/src/build/CMakeFiles/rebuild_cache.dir
+/home/pi/ProtocolMapping/src/build/CMakeFiles/mapping_server.dir
+/home/pi/ProtocolMapping/src/build/CMakeFiles/edit_cache.dir
