@@ -9,8 +9,5 @@ print("Found AML file: ", files)
 aml = mypath + files[0]
 
 consul = Consul(aml)
-consul.dumpJson()
-
-import os
-os.system("consul agent -config-dir=/consul.d -data-dir=/tmp/consul -retry-join 'provider=k8s label_selector=\"app=consul,component=server\"'")
+consul.regist()
 
