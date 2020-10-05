@@ -9,5 +9,5 @@ print("Found AML file: ", files)
 aml = mypath + files[0]
 
 consul = Consul(aml)
-consul.regist()
+consul.Regist()
 

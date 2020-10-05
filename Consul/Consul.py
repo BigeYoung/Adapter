@@ -7,7 +7,7 @@ import requests
 import socket
 
 SERVER_IP = '192.168.137.121'
-SERVER_PORT = '30201'
+SERVER_PORT = 30301
 
 class Consul:
     def __init__(self, aml_file):
@@ -29,23 +29,19 @@ class Consul:
         MY_IP = s.getsockname()[0]
         s.close()
 
-        url = 'http://'+SERVER_IP+':'+SERVER_PORT+'/v1/agent/service/register'
+        url = 'http://'+SERVER_IP+':'+str(SERVER_PORT)+'/v1/agent/service/register'
         payload = {
-            "id": "uaserver-ababa",
-            "name": "uaserver-ababa",
+            "id": "uaserver-"+self.GUID,
+            "name": "uaserver-"+self.Name,
             "address": MY_IP,
-            "port": 8080,
+            "port": 4844,
             "tags": [
-                "uaserver"
-            ],
-            "checks": [
-                {
-                    "http": "http://"+MY_IP+":9020/health",
-                    "interval": "5s"
-                }
+                "uaserver",
+                self.Type
             ]
         }
         print(json.dumps(payload))
+        print(url)
         headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
         r = requests.put(url, data=json.dumps(payload), headers=headers)
         print(r)
