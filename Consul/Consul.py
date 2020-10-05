@@ -6,6 +6,9 @@ import xml.etree.ElementTree as ET
 import requests
 import socket
 
+SERVER_IP = '192.168.137.121'
+SERVER_PORT = '30201'
+
 class Consul:
     def __init__(self, aml_file):
         tree = ET.parse(aml_file)
@@ -21,14 +24,12 @@ class Consul:
             "./*[@Name='Asset_Type']/*[@Name='value']/Value").text
 
     def Regist(self):
-        SERVER_IP = '192.168.137.121'
-
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect((SERVER_IP, 443))
+        s.connect((SERVER_IP, SERVER_PORT))
         MY_IP = s.getsockname()[0]
         s.close()
 
-        url = 'http://'+SERVER_IP+':30301/v1/agent/service/register'
+        url = 'http://'+SERVER_IP+':'+SERVER_PORT+'/v1/agent/service/register'
         payload = {
             "id": "uaserver-ababa",
             "name": "uaserver-ababa",
