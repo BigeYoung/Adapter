@@ -11,12 +11,12 @@ class Consul:
         root = tree.getroot()
         assert root.tag == "CAEXFile"
         IE = root.find(
-            "./*[@Name='AssetAdministrationShellInstanceHierarchy']/*[@Name='Resource']/InternalElement")
+            "./*[@Name='AssetAdministrationShellInstanceHierarchy']/InternalElement")
         self.GUID = IE.get('ID')
-        ASS_Static = IE.find("./*[@Name='AAS']/*[@Name='Static']")
-        self.Name = ASS_Static.find(
+        AAS_Static = IE.find("./*[@Name='AAS']/*[@Name='Static']")
+        self.Name = AAS_Static.find(
             "./*[@Name='Asset_Name']/*[@Name='value']/Value").text
-        self.Type = ASS_Static.find(
+        self.Type = AAS_Static.find(
             "./*[@Name='Asset_Type']/*[@Name='value']/Value").text
 
     def dumpJson(self):

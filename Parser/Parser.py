@@ -2,7 +2,7 @@
 import sys
 import logging
 import xml.etree.ElementTree as ET
-from opcua import ua, Server
+from opcua import ua, uamethod, Server
 from opcua.ua.object_ids import ObjectIds
 from opcua.common.xmlexporter import XmlExporter
 from opcua.common.xmlimporter import XmlImporter
